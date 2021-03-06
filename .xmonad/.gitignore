@@ -1,0 +1,7 @@
+# ignoring all the files in this directory
+/*
+
+# except the files below
+!.gitignore
+!xmonad.hs
+!README.md
