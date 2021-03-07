@@ -1,4 +1,4 @@
-Config { font = "xft:Ubuntu Mono:pixelsize=17:antialias=true:hinting=true"
+Config { font = "xft:UbuntuMono Nerd Font:weight=bold:pixelsize=16:antialias=true:hinting=true"
        , additionalFonts = []
        , borderColor = "black"
        , border = TopB
@@ -21,8 +21,6 @@ Config { font = "xft:Ubuntu Mono:pixelsize=17:antialias=true:hinting=true"
                     , Run Cpu ["-L","3","-H","50",
                                "--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
-                    , Run Com "uname" ["-s","-r"] "" 36000
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
                     , Run Battery        [ "--template" , "Battery: <acstatus>"
                              , "--Low"      , "15"        -- units: %
