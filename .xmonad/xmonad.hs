@@ -250,7 +250,7 @@ myLogHook = return ()
 myStartupHook = do
         spawnOnce "nitrogen --restore &"
         spawnOnce "compton &"
-        spawnOnce "xinput set-prop 14 361 1 &" -- Enable tap to click in my device
+        spawnOnce "xinput set-prop 'ELAN1300:00 04F3:3057 Touchpad' 'libinput Tapping Enabled' 1" -- Enable tap to click in my device
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
