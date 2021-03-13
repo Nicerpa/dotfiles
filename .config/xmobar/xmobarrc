@@ -1,48 +1,49 @@
-Config { font = "xft:UbuntuMono Nerd Font:weight=bold:pixelsize=16:antialias=true:hinting=true"
-       , additionalFonts = []
-       , borderColor = "black"
-       , border = TopB
-       , bgColor = "#1e2127"
-       , fgColor = "grey"
-       , alpha = 255
-       , position = Top
-       , textOffset = -1
-       , iconOffset = -1
-       , lowerOnStart = True
-       , pickBroadest = False
-       , persistent = False
-       , hideOnStart = False
-       , allDesktops = True
-       , overrideRedirect = True
-       , commands = [ Run Cpu ["-L","3","-H","50",
-                               "--normal","green","--high","red"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-                    , Run Battery        [ "--template" , "Battery: <acstatus>"
-                             , "--Low"      , "15"        -- units: %
-                             , "--High"     , "80"        -- units: %
-                             , "--low"      , "darkred"
-                             , "--normal"   , "darkgreen"
-                             , "--high"     , "darkgreen"
-
-                             , "--" -- battery specific options
-                                       -- discharging status
-                                       , "-o"	, "<left>% (<timeleft>)"
-                                       -- AC "on" status
-                                       , "-O"	, "<fc=#dAA520>Charging</fc>"
-                                       -- charged status
-                                       , "-i"	, "<fc=#006000>Charged</fc>"
-                             ] 50
-                     , Run DynNetwork     [ "--template" , "<tx>kB/s <rx>kB/s"
-                                   , "--Low"      , "1000"       -- units: B/s
-                                   , "--High"     , "5000"       -- units: B/s
-                                   , "--low"      , "darkgreen"
-                                   , "--normal"   , "darkgreen"
-                                   , "--high"     , "darkred"
-                                   ] 10
-                    ]
-       , sepChar = "%"
-       , alignSep = "}{"
-       , template = " %cpu% | %memory% | %battery% | %dynnetwork%  }\
-                    \{ <fc=#8BE9FD>%date%</fc> "
-       }
+Config { 
+        font = "xft:UbuntuMono Nerd Font:weight=bold:pixelsize=16:antialias=true:hinting=true",
+        additionalFonts = [],
+        borderColor = "black",
+        border = TopB,
+        bgColor = "#1e2127",
+        fgColor = "grey",
+        alpha = 255,
+        position = Top,
+        textOffset = -1,
+        iconOffset = -1,
+        lowerOnStart = True,
+        pickBroadest = False,
+        persistent = False,
+        hideOnStart = False,
+        allDesktops = True,
+        overrideRedirect = True,
+        commands = [ 
+                    Run Cpu ["-L","3","-H","50",
+                            "--normal","green","--high","red"] 10,
+                    Run Memory ["-t","Mem: <usedratio>%"] 10,
+                    Run Date "%a %b %_d %Y %H:%M:%S" "date" 10,
+                    Run Battery  [ "--template" , "Battery: <acstatus>"
+                                  , "--Low"      , "15"        -- units: %
+                            , "--High"     , "80"        -- units: %
+                            , "--low"      , "darkred"
+                            , "--normal"   , "darkgreen"
+                            , "--high"     , "darkgreen"
+                            , "--" -- battery specific options
+                                    -- discharging status
+                                    , "-o"	, "<left>% (<timeleft>)"
+                                    -- AC "on" status
+                                    , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                    -- charged status
+                                    , "-i"	, "<fc=#006000>Charged</fc>"
+                            ] 50,
+                    Run DynNetwork [ "--template" , "<tx>kB/s <rx>kB/s"
+                                    , "--Low"      , "1000"       -- units: B/s
+                                    , "--High"     , "5000"       -- units: B/s
+                                    , "--low"      , "darkgreen"
+                                    , "--normal"   , "darkgreen"
+                                    , "--high"     , "darkred"
+                                    ] 10,
+                 ]
+        sepChar = "%",
+        alignSep = "}{",
+        template = " %cpu% | %memory% | %battery% | %dynnetwork%  }\
+                     \{ <fc=#8BE9FD>%date%</fc> "
+}
