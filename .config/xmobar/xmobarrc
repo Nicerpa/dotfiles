@@ -1,6 +1,6 @@
 Config { 
         font = "xft:UbuntuMono Nerd Font:weight=bold:pixelsize=16:antialias=true:hinting=true",
-        additionalFonts = [],
+        additionalFonts = ["xft:Mononoki Nerd Font:pixelsize=18:antialias=true:hinting=true"],
         borderColor = "black",
         border = TopB,
         bgColor = "#1e2127",
@@ -9,6 +9,7 @@ Config {
         position = Top,
         textOffset = -1,
         iconOffset = -1,
+        iconRoot = "/home/nicolas/.xmonad/resources",
         lowerOnStart = True,
         pickBroadest = False,
         persistent = False,
@@ -20,6 +21,7 @@ Config {
                             "--normal","green","--high","red"] 10,
                     Run Memory ["-t","Mem: <usedratio>%"] 10,
                     Run Date "%a %b %_d %Y %H:%M:%S" "date" 10,
+                    Run Com "/home/nicolas/.dotfiles/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20,
                     Run Battery  [ "--template" , "Battery: <acstatus>"
                                   , "--Low"      , "15"        -- units: %
                             , "--High"     , "80"        -- units: %
@@ -32,18 +34,16 @@ Config {
                                     -- AC "on" status
                                     , "-O"	, "<fc=#dAA520>Charging</fc>"
                                     -- charged status
-                                    , "-i"	, "<fc=#006000>Charged</fc>"
-                            ] 50,
+                                    , "-i"	, "<fc=#006000>Charged</fc>"] 50,
                     Run DynNetwork [ "--template" , "<tx>kB/s <rx>kB/s"
                                     , "--Low"      , "1000"       -- units: B/s
                                     , "--High"     , "5000"       -- units: B/s
                                     , "--low"      , "darkgreen"
                                     , "--normal"   , "darkgreen"
-                                    , "--high"     , "darkred"
-                                    ] 10,
-                 ]
+                                    , "--high"     , "darkred"] 10
+                 ],
         sepChar = "%",
         alignSep = "}{",
-        template = " %cpu% | %memory% | %battery% | %dynnetwork%  }\
+        template = "<fc=#F27906><fn=1>  </fn></fc> %cpu% | %memory% | %battery% | %dynnetwork% }\
                      \{ <fc=#8BE9FD>%date%</fc> "
 }
