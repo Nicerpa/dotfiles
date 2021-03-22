@@ -17,9 +17,10 @@ Config {
         allDesktops = True,
         overrideRedirect = True,
         commands = [ 
-                    Run Cpu ["-L","3","-H","50",
+                    Run Cpu ["-t","<fn=1>  </fn><total>%",
+                            "-L","3","-H","50",
                             "--normal","green","--high","red"] 10,
-                    Run Memory ["-t","Mem: <usedratio>%"] 10,
+                    Run Memory ["-t","<fn=1>  </fn> <usedratio>%"] 10,
                     Run Date "%a %b %_d %Y %H:%M:%S" "date" 10,
                     Run Com "/home/nicolas/.dotfiles/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20,
                     Run Battery  [ "--template" , "Battery: <acstatus>"
