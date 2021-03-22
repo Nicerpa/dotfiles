@@ -35,7 +35,7 @@ Config {
                                     , "-O"	, "<fc=#dAA520>Charging</fc>"
                                     -- charged status
                                     , "-i"	, "<fc=#006000>Charged</fc>"] 50,
-                    Run DynNetwork [ "--template" , "<tx>kB/s <rx>kB/s"
+                    Run DynNetwork [ "--template" , "<fn=1>  </fn><tx>kB/s <fn=1>  </fn><rx>kB/s"
                                     , "--Low"      , "1000"       -- units: B/s
                                     , "--High"     , "5000"       -- units: B/s
                                     , "--low"      , "darkgreen"
