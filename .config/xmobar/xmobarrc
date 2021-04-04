@@ -1,5 +1,5 @@
 Config { 
-        font = "xft:UbuntuMono Nerd Font:weight=bold:pixelsize=16:antialias=true:hinting=true",
+        font = "xft:UbuntuMono Nerd Font:weight=bold:pixelsize=17:antialias=true:hinting=true",
         additionalFonts = ["xft:Mononoki Nerd Font:pixelsize=18:antialias=true:hinting=true"],
         borderColor = "black",
         border = TopB,
@@ -19,11 +19,11 @@ Config {
         commands = [ 
                     Run Cpu ["-t","<fn=1>  </fn><total>%",
                             "-L","3","-H","50",
-                            "--normal","green","--high","red"] 10,
+                            "--normal","darkgreen","--high","red"] 10,
                     Run Memory ["-t","<fn=1>  </fn> <usedratio>%"] 10,
                     Run Date "%a %b %_d %Y %H:%M:%S" "date" 10,
                     Run Com "/home/nicolas/.dotfiles/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20,
-                    Run Battery  [ "--template" , "Battery: <acstatus>"
+                    Run Battery  [ "--template" , "<fn=1>  </fn><acstatus>"
                                   , "--Low"      , "15"        -- units: %
                             , "--High"     , "80"        -- units: %
                             , "--low"      , "darkred"
