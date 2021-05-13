@@ -90,22 +90,35 @@ keys = [
         desc="Spawn a command using a prompt widget"),
 ]
 
-groups = [Group(i) for i in "123456789"]
+groups = [Group(i) for i in [
+    "   ", "   ", "   ", "   ", "   ", "   ", "   ", "   ", "   ",
+]]
 
-for i in groups:
+for i, group in enumerate(groups):
+    actual_key = str(i + 1)
     keys.extend([
-        # mod1 + letter of group = switch to group
-        Key([mod], i.name, lazy.group[i.name].toscreen(),
-            desc="Switch to group {}".format(i.name)),
-
-        # mod1 + shift + letter of group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
-        # Or, use below if you prefer not to switch to that group.
-        # # mod1 + shift + letter of group = move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-        #     desc="move focused window to group {}".format(i.name)),
+        # Switch to workspace N
+        Key([mod], actual_key, lazy.group[group.name].toscreen()),
+        # Send window to workspace N
+        Key([mod, "shift"], actual_key, lazy.window.togroup(group.name))
     ])
+
+#groups = [Group(i) for i in "123456789"]
+#
+#for i in groups:
+#    keys.extend([
+#        # mod1 + letter of group = switch to group
+#        Key([mod], i.name, lazy.group[i.name].toscreen(),
+#            desc="Switch to group {}".format(i.name)),
+#
+#        # mod1 + shift + letter of group = switch to & move focused window to group
+#        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
+#            desc="Switch to & move focused window to group {}".format(i.name)),
+#        # Or, use below if you prefer not to switch to that group.
+#        # # mod1 + shift + letter of group = move focused window to group
+#        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
+#        #     desc="move focused window to group {}".format(i.name)),
+#    ])
 
 layouts = [
     layout.Columns(border_focus_stack='#d75f5f', margin=5),
@@ -192,6 +205,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                icon(bg='dark', fg="color3", fontsize=19, text='   '),
                 widget.GroupBox(
                     **base(fg='light'),
                     font='UbuntuMono Nerd Font',
@@ -240,6 +254,7 @@ screens = [
                 widget.CurrentLayoutIcon(**base(bg='color2'), scale=0.65),
                 widget.CurrentLayout(**base(bg='color2'), padding=5),
                 powerline('dark', 'color2'),
+                widget.Volume(**base(bg='dark', fg='color2')),
                 widget.Systray(background=colors['dark'], padding=5),
                 widget.QuickExit(**base(bg='dark', fg='color2'), fmt=" 襤 ", countdown_format="{}")
             ],
