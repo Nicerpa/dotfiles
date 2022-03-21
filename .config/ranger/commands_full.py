@@ -641,7 +641,7 @@ class terminal(Command):
 
     def execute(self):
         from ranger.ext.get_executables import get_term
-        self.fm.run(get_term(), flags='f')
+        self.fm.run('alacritty', flags='d')
 
 
 class delete(Command):

@@ -2,7 +2,7 @@ if !exists('g:vscode')
     let g:mapleader = "\<Space>"
 endif
 
-set number relativenumber
+set number
 set colorcolumn=81
 set laststatus=0
 set smartindent

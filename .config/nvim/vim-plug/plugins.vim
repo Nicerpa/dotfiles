@@ -16,9 +16,11 @@ call plug#begin('~/.config/nvim/plugged')
         Plug 'ryanoasis/vim-devicons'
         " Intellisense
         Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        " Airline
+        " Status Line
         Plug 'vim-airline/vim-airline'
         Plug 'vim-airline/vim-airline-themes'
+        " Plug 'feline-nvim/feline.nvim'
+
         " Indent guides
         Plug 'Yggdroot/indentLine' 
         " Git integration
