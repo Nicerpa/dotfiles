@@ -1,8 +1,8 @@
 [user]
 	email = nicolas.cerpa@sansano.usm.cl
-	name = Nicerpa
+	name = Nicolás Cerpa
 [core]
-	editor = vim
+	editor = nvim
 [init]
 	defaultBranch = master
 [credential "https://github.com"]
