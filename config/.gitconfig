@@ -1,9 +1,0 @@
-[user]
-	email = nicolas.cerpa@sansano.usm.cl
-	name = Nicolás Cerpa
-[core]
-	editor = nvim
-[init]
-	defaultBranch = master
-[pull]
-    rebase = false

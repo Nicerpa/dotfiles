@@ -14,3 +14,11 @@ alias gm='git merge'
 alias gp='git push'
 alias grs='git restore'
 alias gcl='git clone'
+alias gfgpl='git fetch && git pull'
+
+# ls
+alias ls="eza --icons"
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias l='ls -CF'

@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+# Dotfiles path
+export DOTFILES="$HOME/.dotfiles"
+
+# Set the default editor
+export EDITOR=nvim
+
+# Set the default man pager
+export MANPAGER='nvim +Man!'
+
+# PATH
+export PATH="$PATH:$HOME/.local/bin"

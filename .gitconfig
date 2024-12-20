@@ -1,0 +1,12 @@
+[init]
+    defaultBranch = master
+[user]
+    email = nicolas.cerpa@sansano.usm.cl
+	name = Nicolás Cerpa
+[core]
+    editor = nvim
+[pull]
+    rebase = false
+
+[includeIf "gitdir:~/Nursoft/"]
+  path = ~/Nursoft/.gitconfig-nursoft

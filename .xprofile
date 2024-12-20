@@ -1,0 +1,7 @@
+## init software ##
+
+# composer
+picom &
+# wallpaper
+nitrogen --restore &
+
