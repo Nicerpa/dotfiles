@@ -14,6 +14,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # nix.nixPath = [
+  #   "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+  #   "/nix/var/nix/profiles/per-user/root/channels"
+  #   "nixos-config=${config.users.users.nicolas.home}/.dotfiles/configuration.nix"
+  # ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -84,19 +91,23 @@
   users.users.nicolas = {
     isNormalUser = true;
     description = "nicolas";
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-	neovim
-	git
-	firefox
-	vscode
-	vscode-extensions.vscodevim.vim
-    #  thunderbird
+      neovim
+      tmux
+      git
+      firefox
+      vscode
+      alacritty
     ];
   };
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  # Install zsh
+  programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
