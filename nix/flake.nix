@@ -35,5 +35,11 @@
       };
     };
     
+    homeConfigurations = {
+      gunner = home-manager.lib-homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./hosts/gunner/home.nix ];
+      };
+    };
   };
 }
