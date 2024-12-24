@@ -109,6 +109,7 @@
     users = {
       "nicolas" = import ./home.nix;
     };
+    backupFileExtension = "backup";
   };
 
   # Install firefox.
