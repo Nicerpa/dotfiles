@@ -61,6 +61,10 @@ bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
 
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -89,3 +93,7 @@ source $HOME/.dotfiles/.aliases
 
 # Environment variables
 source $HOME/.dotfiles/.envs
+
+# Nursoft commands
+source $HOME/Nursoft/.commands
+
