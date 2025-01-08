@@ -22,3 +22,16 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias l='ls -CF'
+
+# docker
+
+alias d='docker'
+alias dc='docker compose'
+alias dcb='docker compose build'
+alias dcd='docker compose down'
+alias dce='docker compose exec'
+alias dcl='docker compose logs'
+alias dcp='docker compose ps'
+alias dcr='docker compose run'
+alias dcu='docker compose up'
+
