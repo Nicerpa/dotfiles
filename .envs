@@ -11,3 +11,7 @@ export MANPAGER='nvim +Man!'
 
 # PATH
 export PATH="$PATH:$HOME/.local/bin"
+export PATH=$PATH:/usr/local/go/bin
+
+# GO PATH
+export GOPATH=$HOME/.local/go
