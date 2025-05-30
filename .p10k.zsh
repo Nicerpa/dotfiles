@@ -53,6 +53,7 @@
     dir                       # current directory
     vcs                       # git status
     kubecontext
+    vpn_ip
     # command_execution_time  # previous command duration
     # =========================[ Line #2 ]=========================
     newline                   # \n
@@ -203,6 +204,22 @@
   POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION+='${P9K_KUBECONTEXT_CLOUD_CLUSTER:-${P9K_KUBECONTEXT_NAME}}'
   # Append the current context's namespace if it's not "default".
   POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION+='${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
+
+  ########################[ vpn_ip: virtual private network indicator ]#########################
+  # VPN IP color.
+  typeset -g POWERLEVEL9K_VPN_IP_FOREGROUND=81
+  # When on VPN, show just an icon without the IP address.
+  # Tip: To display the private IP address when on VPN, remove the next line.
+  typeset -g POWERLEVEL9K_VPN_IP_CONTENT_EXPANSION=
+  # Regular expression for the VPN network interface. Run `ifconfig` or `ip -4 a show` while on VPN
+  # to see the name of the interface.
+  typeset -g POWERLEVEL9K_VPN_IP_INTERFACE='(gpd|wg|(.*tun)|(tun0)|tailscale)[0-9]*|(zt.*)'
+  # If set to true, show one segment per matching network interface. If set to false, show only
+  # one segment corresponding to the first matching network interface.
+  # Tip: If you set it to true, you'll probably want to unset POWERLEVEL9K_VPN_IP_CONTENT_EXPANSION.
+  typeset -g POWERLEVEL9K_VPN_IP_SHOW_ALL=false
+  # Custom icon.
+  # typeset -g POWERLEVEL9K_VPN_IP_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   # If p10k is already loaded, reload configuration.
   # This works even with POWERLEVEL9K_DISABLE_HOT_RELOAD=true.
