@@ -1,0 +1,29 @@
+# colors:
+#   normal:
+#     black: '#1e2127'
+#     blue: '#61afef'
+#     cyan: '#56b6c2'
+#     green: '#98c379'
+#     magenta: '#c678dd'
+#     red: '#ff00ff'
+#     white: '#e6efff'
+#     yellow: '#d19a66'
+#   primary:
+#     background: '#1e2127'
+#     bright_foreground: '#e6efff'
+#     foreground: '#abb2bf'
+
+window:
+  opacity: 1
+  padding:
+    x: 10
+    y: 10
+font:
+  bold:
+    family: Hack Nerd Font
+  italic:
+    family: Hack Nerd Font
+  normal:
+    family: Hack Nerd Font
+  size: 14.0
+
