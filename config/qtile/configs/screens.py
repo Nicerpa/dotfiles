@@ -16,6 +16,7 @@ screens = [
                     padding=10
                 ),
                 widget.GroupBox(
+                    disable_drag=True,
                     highlight_method='block',
                     padding=5,
                 ),
@@ -48,6 +49,7 @@ screens = [
                     # background="#5E81AC"
                 ),
                 widget.GroupBox(
+                    disable_drag=True,
                     # inactive="#4C566A",
                     # background="#2E3440",
                     highlight_method='block',
