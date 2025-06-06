@@ -52,7 +52,10 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawn("rofi -show drun"), desc="Spawn a command using a prompt widget"),
+    # Lock the screen
     Key([mod], "x", lazy.spawn("betterlockscreen --lock"), desc="Lock screen"),
+    # Screenshot commands
+    Key([mod], "p", lazy.spawn("maim -s | xclip -selection clipboard -t image/png"), desc="Screenshot selected area to clipboard"),
 ]
 
 # Add key bindings to switch VTs in Wayland.
