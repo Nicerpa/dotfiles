@@ -1,0 +1,28 @@
+colors:
+  normal:
+    black: '#333740'   # Darker than original 'black'
+    blue: '#4a82b8'   # Darker blue
+    cyan: '#30808f'   # Darker cyan
+    green: '#68a05c'   # Darker green
+    magenta: '#a05ca0'  # Darker magenta
+    red: '#cc4444'   # Darker red
+    white: '#1e2127'   # Keep the darkest 'white'
+    yellow: '#c18a4d'  # Darker yellow
+  primary:
+    background: '#f0f0f0'
+    bright_foreground: '#1e2127'
+    foreground: '#1a1d23'
+
+window:
+  opacity: 1
+  padding:
+    x: 10
+    y: 10
+font:
+  bold:
+    family: Hack Nerd Font
+  italic:
+    family: Hack Nerd Font
+  normal:
+    family: Hack Nerd Font
+  size: 14.0
