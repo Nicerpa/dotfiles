@@ -55,7 +55,7 @@ keys = [
     # Lock the screen
     Key([mod], "x", lazy.spawn("betterlockscreen --lock"), desc="Lock screen"),
     # Screenshot commands
-    Key([mod], "p", lazy.spawn("maim -s | xclip -selection clipboard -t image/png"), desc="Screenshot selected area to clipboard"),
+    Key([], "Print", lazy.spawn("screenshot-clipboard"), desc="Screenshot selected area to clipboard"),
 ]
 
 # Add key bindings to switch VTs in Wayland.
