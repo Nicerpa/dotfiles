@@ -2,12 +2,12 @@ from libqtile import layout
 from libqtile.config import Match
 
 layouts = [
+    layout.Max(
+        margin=2,
+    ),
     layout.Columns(
         border_focus_stack=["#d75f5f", "#8f3d3d"],
         border_width=4,
-        margin=2,
-    ),
-    layout.Max(
         margin=2,
     ),
     layout.MonadWide(
