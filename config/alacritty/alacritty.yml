@@ -12,7 +12,7 @@
 #     background: '#1e2127'
 #     bright_foreground: '#e6efff'
 #     foreground: '#abb2bf'
-#
+
 window:
   opacity: 1
   padding:
@@ -25,5 +25,5 @@ font:
     family: Hack Nerd Font
   normal:
     family: Hack Nerd Font
-  size: 15.0
+  size: 10.0
 
