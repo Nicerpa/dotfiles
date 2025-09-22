@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
       default = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
@@ -23,7 +23,6 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/scanner/configuration.nix
-          inputs.home-manager.nixosModules.default
         ];
       };
       operator = nixpkgs.lib.nixosSystem {
@@ -36,8 +35,8 @@
     };
     
     homeConfigurations = {
-      gunner = home-manager.lib-homeManagerConfiguration {
-        inherit pkgs;
+      gunner = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [ ./hosts/gunner/home.nix ];
       };
     };

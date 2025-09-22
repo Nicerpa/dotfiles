@@ -53,8 +53,13 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
+  # Enable LightDM display manager for multiple desktop environments
+  services.xserver.displayManager.lightdm.enable = true;
+  
+  # Enable Qtile window manager
+  services.xserver.windowManager.qtile.enable = true;
+  
+  # Enable GNOME desktop environment
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
@@ -86,21 +91,14 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nicolas = {
     isNormalUser = true;
     description = "nicolas";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      neovim
-      tmux
-      git
-      firefox
-      vscode
-      alacritty
     ];
   };
 
@@ -112,20 +110,18 @@
     backupFileExtension = "backup";
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   # Install zsh
   programs.zsh.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    wget
+    curl
+    vim
+    git
+    neovim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -136,23 +132,16 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }

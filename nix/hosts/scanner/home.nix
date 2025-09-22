@@ -1,8 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
+  imports = [
+    ../../modules/kubernetes.nix
+    ../../modules/vscode.nix
+    ../../modules/docker.nix
+  ];
+
   home.username = "nicolas";
   home.homeDirectory = "/home/nicolas";
 
@@ -15,13 +19,16 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   home.packages = [
+    pkgs.neovim
+    pkgs.tmux
+    pkgs.alacritty
+    pkgs.qtile
     pkgs.eza
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+    pkgs.ranger
+    pkgs.rofi
+    pkgs.nerdfonts
+    pkgs.google-chrome
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -41,6 +48,12 @@
   # plain files is through 'home.file'.
   home.file = {
     ".zshrc".source = /home/nicolas/.dotfiles/.zshrc;
+    ".config/qtile".source = /home/nicolas/.dotfiles/config/qtile;
+    ".config/rofi".source = /home/nicolas/.dotfiles/config/rofi;
+    ".config/alacritty".source = /home/nicolas/.dotfiles/config/alacritty;
+    ".config/kitty".source = /home/nicolas/.dotfiles/config/kitty;
+    ".config/ranger".source = /home/nicolas/.dotfiles/config/ranger;
+    
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -70,8 +83,16 @@
   #  /etc/profiles/per-user/nicolas/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    DOTFILES = "${config.home.homeDirectory}/.dotfiles";
     EDITOR = "nvim";
+    MANPAGER = "nvim +Man!";
+    GOPATH = "${config.home.homeDirectory}/.local/go";
   };
+
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.local/bin"
+    "/usr/local/go/bin"
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
