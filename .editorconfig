@@ -1,0 +1,38 @@
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+[*.py]
+indent_style = space
+indent_size = 4
+max_line_length = 88
+
+[*.nix]
+indent_style = space
+indent_size = 2
+max_line_length = 100
+
+[*.{yml,yaml,json}]
+indent_style = space
+indent_size = 2
+
+[*.{sh,bash,zsh}]
+indent_style = space
+indent_size = 2
+
+[*.{conf,config,cfg,ini,rasi}]
+indent_style = space
+indent_size = 2
+
+[*.md]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = false
+
+[*.lock]
+insert_final_newline = false
+trim_trailing_whitespace = false
