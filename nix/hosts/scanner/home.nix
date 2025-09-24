@@ -5,6 +5,7 @@
     ../../modules/kubernetes.nix
     ../../modules/vscode.nix
     ../../modules/docker.nix
+    ../../modules/qtile.nix
   ];
 
   home.username = "nicolas";
@@ -23,10 +24,7 @@
     pkgs.neovim
     pkgs.tmux
     pkgs.alacritty
-    pkgs.qtile
     pkgs.eza
-    pkgs.ranger
-    pkgs.rofi
     pkgs.nerdfonts
     pkgs.google-chrome
 
@@ -48,12 +46,9 @@
   # plain files is through 'home.file'.
   home.file = {
     ".zshrc".source = /home/nicolas/.dotfiles/.zshrc;
-    ".config/qtile".source = /home/nicolas/.dotfiles/config/qtile;
-    ".config/rofi".source = /home/nicolas/.dotfiles/config/rofi;
     ".config/alacritty".source = /home/nicolas/.dotfiles/config/alacritty;
     ".config/kitty".source = /home/nicolas/.dotfiles/config/kitty;
-    ".config/ranger".source = /home/nicolas/.dotfiles/config/ranger;
-    
+
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
