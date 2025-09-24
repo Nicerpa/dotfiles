@@ -2,10 +2,6 @@
 
 {
   imports = [
-    ../../modules/kubernetes.nix
-    ../../modules/vscode.nix
-    ../../modules/docker.nix
-    ../../modules/qtile.nix
   ];
 
   home.username = "nicolas";
@@ -25,7 +21,7 @@
     pkgs.tmux
     pkgs.alacritty
     pkgs.eza
-    pkgs.nerdfonts
+    # pkgs.nerdfonts
     pkgs.google-chrome
 
     # # It is sometimes useful to fine-tune packages, for example, by applying

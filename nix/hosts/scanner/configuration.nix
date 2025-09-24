@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/wm/gnome.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -52,15 +53,6 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Enable LightDM display manager for multiple desktop environments
-  services.xserver.displayManager.lightdm.enable = true;
-
-  # Enable Qtile window manager
-  # services.xserver.windowManager.qtile.enable = true;
-
-  # Enable GNOME desktop environment
-  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
