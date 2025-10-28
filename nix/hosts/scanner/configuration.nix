@@ -1,12 +1,8 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, inputs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
     ];
@@ -53,14 +49,14 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable LightDM display manager for multiple desktop environments
-  services.xserver.displayManager.lightdm.enable = true;
-  
-  # Enable Qtile window manager
-  services.xserver.windowManager.qtile.enable = true;
-  
-  # Enable GNOME desktop environment
+  services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+
+  services.gnome.core-apps.enable = false;
+  services.gnome.core-developer-tools.enable = false;
+  services.gnome.games.enable = false;
+
+  environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-user-docs ];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -144,5 +140,5 @@
 
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }
