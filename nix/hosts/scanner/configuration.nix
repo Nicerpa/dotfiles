@@ -22,7 +22,7 @@
   # ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "5s"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -103,6 +103,7 @@
   };
 
   home-manager = {
+    useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs; };
     users = {
       "nicolas" = import ./home.nix;

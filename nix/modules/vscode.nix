@@ -5,7 +5,6 @@
     enable = true;
     package = pkgs.vscode;
     
-    # VSCode extensions
     extensions = with pkgs.vscode-extensions; [
       # Language Support
       ms-python.python                              # Python language support
@@ -41,7 +40,7 @@
       sdras.night-owl                               # Night Owl theme
       zhuangtongfa.material-theme                   # One Dark Pro theme
       
-      # Additional utilities (may not be available in nixpkgs)
+      # Additional utilities
       # The following extensions might need to be installed manually or through other means:
       # aaron-bond.better-comments
       # adamhartford.vscode-base64
@@ -63,79 +62,78 @@
       # xabikos.javascriptsnippets
       # zxh404.vscode-proto3
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-      # Extensions not available in nixpkgs
-      {
-        name = "better-comments";
-        publisher = "aaron-bond";
-        version = "3.0.2";
-        sha256 = "sha256-hQmA8PWjf2Nd60v5EAuqqD8LIEu7slrNs8luc3ePgZc=";
-      }
-      {
-        name = "vscode-base64";
-        publisher = "adamhartford";
-        version = "0.1.0";
-        sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
-      }
-      {
-        name = "rainbow-csv";
-        publisher = "mechatroner";
-        version = "3.11.0";
-        sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
-      }
-      {
-        name = "git-graph";
-        publisher = "mhutchie";
-        version = "1.30.0";
-        sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
-      }
-      {
-        name = "vscode-elixir";
-        publisher = "mjmcloug";
-        version = "1.1.0";
-        sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
-      }
-      {
-        name = "indent-rainbow";
-        publisher = "oderwat";
-        version = "8.3.1";
-        sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
-      }
-      {
-        name = "cargo";
-        publisher = "panicbit";
-        version = "0.2.3";
-        sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
-      }
-      {
-        name = "even-better-toml";
-        publisher = "tamasfe";
-        version = "0.19.2";
-        sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
-      }
-      {
-        name = "errorlens";
-        publisher = "usernamehw";
-        version = "3.16.0";
-        sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
-      }
-      {
-        name = "vscode-nginx";
-        publisher = "william-voyek";
-        version = "0.7.2";
-        sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
-      }
-      {
-        name = "javascriptsnippets";
-        publisher = "xabikos";
-        version = "1.8.0";
-        sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
-      }
-      {
-        name = "vscode-proto3";
-        publisher = "zxh404";
-        version = "0.5.5";
-        sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
-      }
+      # {
+      #   name = "better-comments";
+      #   publisher = "aaron-bond";
+      #   version = "3.0.2";
+      #   sha256 = "sha256-hQmA8PWjf2Nd60v5EAuqqD8LIEu7slrNs8luc3ePgZc=";
+      # }
+      # {
+      #   name = "vscode-base64";
+      #   publisher = "adamhartford";
+      #   version = "0.1.0";
+      #   sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
+      # }
+      # {
+      #   name = "rainbow-csv";
+      #   publisher = "mechatroner";
+      #   version = "3.11.0";
+      #   sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
+      # }
+      # {
+      #   name = "git-graph";
+      #   publisher = "mhutchie";
+      #   version = "1.30.0";
+      #   sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
+      # }
+      # {
+      #   name = "vscode-elixir";
+      #   publisher = "mjmcloug";
+      #   version = "1.1.0";
+      #   sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
+      # }
+      # {
+      #   name = "indent-rainbow";
+      #   publisher = "oderwat";
+      #   version = "8.3.1";
+      #   sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
+      # }
+      # {
+      #   name = "cargo";
+      #   publisher = "panicbit";
+      #   version = "0.2.3";
+      #   sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
+      # }
+      # {
+      #   name = "even-better-toml";
+      #   publisher = "tamasfe";
+      #   version = "0.19.2";
+      #   sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
+      # }
+      # {
+      #   name = "errorlens";
+      #   publisher = "usernamehw";
+      #   version = "3.16.0";
+      #   sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
+      # }
+      # {
+      #   name = "vscode-nginx";
+      #   publisher = "william-voyek";
+      #   version = "0.7.2";
+      #   sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
+      # }
+      # {
+      #   name = "javascriptsnippets";
+      #   publisher = "xabikos";
+      #   version = "1.8.0";
+      #   sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
+      # }
+      # {
+      #   name = "vscode-proto3";
+      #   publisher = "zxh404";
+      #   version = "0.5.5";
+      #   sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
+      # }
     ];
     
     # VSCode user settings
@@ -266,7 +264,6 @@
       };
     };
     
-    # Keybindings
     keybindings = [
       {
         key = "ctrl+shift+e";
@@ -299,10 +296,9 @@
     ];
   };
   
-  # Additional packages that complement VSCode
   home.packages = with pkgs; [
     # Language servers and formatters
-    nil                       # Nix language server
+    nil                      # Nix language server
     nodePackages.prettier    # Code formatter
     nodePackages.eslint      # JavaScript linter
     black                    # Python formatter

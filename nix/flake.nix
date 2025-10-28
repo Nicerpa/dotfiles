@@ -23,6 +23,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/scanner/configuration.nix
+          inputs.home-manager.nixosModules.default
         ];
       };
       operator = nixpkgs.lib.nixosSystem {
