@@ -35,12 +35,12 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 # Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+  mkdir -p "$(dirname $ZINIT_HOME)"
+  git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
 # Source/Load zinit
-source "${ZINIT_HOME}/zinit.zsh"
+[ -f "${ZINIT_HOME}/zinit.zsh" ] && source "${ZINIT_HOME}/zinit.zsh"
 
 # Add in Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
@@ -89,11 +89,13 @@ source <(kubectl completion zsh)
 source <(helm completion zsh)
 
 # Aliases
-source $HOME/.dotfiles/.aliases
+[ -f "$HOME/.dotfiles/.aliases" ] && source "$HOME/.dotfiles/.aliases"
 
 # Environment variables
-source $HOME/.dotfiles/.envs
+[ -f "$HOME/.dotfiles/.envs" ] && source "$HOME/.dotfiles/.envs"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

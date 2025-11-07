@@ -10,6 +10,8 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
+        wallpaper='~/Pictures/Wallpapers/wallhaven-wqrdv6.jpg',
+        wallpaper_mode="fill",       
         top=bar.Bar(
             [
                 widget.CurrentLayout(
@@ -30,18 +32,59 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                widget.Systray(
+                    padding=5
+                ),
                 widget.Clock(
                     format="%a %H:%M %p",
                     padding=10
                 ),
-                widget.QuickExit(),
+                widget.Volume(),
+                widget.Battery(
+                    format='{char} {percent:2.0%} {hour:d}:{min:02d}'
+                ),
             ],
             24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            # margin=[5,5,0,5],
+            # border_width=[1, 1, 1, 1]
         ),
     ),
     Screen(
+        wallpaper='~/Pictures/Wallpapers/mist_forest_1.png',
+        wallpaper_mode="fill",
+        top=bar.Bar(
+            [
+                widget.CurrentLayout(
+                    padding=10
+                ),
+                widget.GroupBox(
+                    highlight_method='block',
+                    padding=5,
+                ),
+                widget.Prompt(),
+                widget.WindowName(
+                    padding=10
+                ),
+                widget.Chord(
+                    chords_colors={
+                        "launch": ("#ff0000", "#ffffff"),
+                    },
+                    name_transform=lambda name: name.upper(),
+                ),
+                widget.Clock(
+                    format="%a %H:%M %p",
+                    padding=10
+                ),
+                widget.Volume(),
+            ],
+            24,
+            # margin=[5,5,0,5],
+            # # border_width=[3, 3, 3, 3]
+        ),
+    ),
+    Screen(
+        wallpaper='~/Pictures/Wallpapers/wallhaven-5gym13.jpg',
+        wallpaper_mode="fill",
         top=bar.Bar(
             [
                 widget.CurrentLayout(
@@ -67,9 +110,9 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 # widget.Net(),
-                widget.Systray(
-                    padding=5
-                ),
+                # widget.Systray(
+                #     padding=5
+                # ),
                 widget.Clock(
                     format="%d %a %H:%M %p",
                     padding=10
@@ -78,11 +121,10 @@ screens = [
                 widget.DF(
                     warn_space=3
                 ),
-                widget.QuickExit(),
             ],
             24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+            # margin=[5,5,0,5],
+            # border_width=[1, 1, 1, 1]
         )
     )
 ]

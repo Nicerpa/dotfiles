@@ -1,15 +1,15 @@
 [init]
     defaultBranch = master
 [user]
-    email = nicolas.cerpa@sansano.usm.cl
+	email = nicolas.cerpa@sansano.usm.cl
 	name = Nicolás Cerpa
 [core]
     editor = nvim
 [pull]
     rebase = false
 
-[includeIf "gitdir:~/Nursoft/"]
-  path = ~/Nursoft/.gitconfig-nursoft
+; [includeIf "gitdir:~/Nursoft/"]
+;   path = ~/Nursoft/.gitconfig-nursoft
 
 [color]
 	ui = true
@@ -26,3 +26,6 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[credential "https://gitlab.nur.dev"]
+	helper =
+	helper = !/nix/store/hygw0c3p9qgba7li79pczm1v8a8xzj2x-glab-1.52.0/bin/glab auth git-credential
