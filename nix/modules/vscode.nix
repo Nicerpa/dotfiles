@@ -4,42 +4,42 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
-    
+
     extensions = with pkgs.vscode-extensions; [
       # Language Support
       ms-python.python                              # Python language support
       ms-python.vscode-pylance                      # Python language server
       rust-lang.rust-analyzer                       # Rust analyzer
       redhat.vscode-yaml                            # YAML language support
-      
+
       # DevOps and Infrastructure
       ms-kubernetes-tools.vscode-kubernetes-tools   # Kubernetes tools
       ms-vscode-remote.remote-containers             # Remote containers
       ms-vscode-remote.remote-ssh                    # Remote SSH
       ms-vscode-remote.remote-ssh-edit               # Remote SSH editing
       ms-azuretools.vscode-docker                    # Docker support
-      
+
       # Git and Version Control
       eamodio.gitlens                               # GitLens
-      
+
       # Productivity and Utilities
       vscodevim.vim                                 # Vim keybindings
       bbenoist.nix                                  # Nix language support
       pkief.material-icon-theme                     # Material Icon Theme
       vscode-icons-team.vscode-icons                # VSCode Icons
-      
+
       # Code Quality and Formatting
       ms-vscode.vscode-eslint                       # ESLint
       editorconfig.editorconfig                     # EditorConfig
-      
+
       # GitHub Integration
       github.copilot                                # GitHub Copilot
       github.copilot-chat                           # GitHub Copilot Chat
-      
+
       # Themes
       sdras.night-owl                               # Night Owl theme
       zhuangtongfa.material-theme                   # One Dark Pro theme
-      
+
       # Additional utilities
       # The following extensions might need to be installed manually or through other means:
       # aaron-bond.better-comments
@@ -135,13 +135,13 @@
       #   sha256 = "sha256-X9u9r2CbRX8VE0h7BN7ZHTlj9lIJZ6o7Xn/aYY2+8oE=";
       # }
     ];
-    
+
     # VSCode user settings
     userSettings = {
       # Window and UI Configuration
       "window.menuBarVisibility" = "toggle";
       "window.autoDetectColorScheme" = true;
-      
+
       # Editor Configuration
       "editor.fontFamily" = "'Hack Nerd Font'";
       "editor.fontSize" = 18;
@@ -157,7 +157,7 @@
       "editor.scrollBeyondLastLine" = false;
       "editor.cursorBlinking" = "smooth";
       "editor.cursorSmoothCaretAnimation" = "on";
-      
+
       # Theme and Appearance
       "workbench.colorTheme" = "One Dark Pro Darker";
       "workbench.preferredLightColorTheme" = "Night Owl Light (No Italics)";
@@ -167,18 +167,18 @@
       "workbench.editor.showTabs" = true;
       "workbench.editor.tabCloseButton" = "right";
       "window.zoomLevel" = 0;
-      
+
       # File Explorer
       "explorer.confirmDelete" = false;
       "explorer.confirmDragAndDrop" = false;
       "explorer.openEditors.visible" = 0;
-      
+
       # Terminal
       "terminal.integrated.fontFamily" = "'Hack Nerd Font', monospace";
       "terminal.integrated.fontSize" = 13;
       "terminal.integrated.shell.linux" = "${pkgs.zsh}/bin/zsh";
       "terminal.integrated.defaultProfile.linux" = "zsh";
-      
+
       # Git Configuration
       "git.enableSmartCommit" = true;
       "git.confirmSync" = false;
@@ -186,14 +186,14 @@
       "gitlens.blame.toggleMode" = "window";
       "gitlens.currentLine.enabled" = false;
       "gitlens.hovers.enabled" = false;
-      
+
       # Language-specific settings
       "python.defaultInterpreterPath" = "${pkgs.python3}/bin/python";
       "python.analysis.typeCheckingMode" = "standard";
       "python.formatting.provider" = "black";
       "python.linting.enabled" = true;
       "python.linting.flake8Enabled" = true;
-      
+
       # Vim configuration
       "vim.useSystemClipboard" = true;
       "vim.useCtrlKeys" = true;
@@ -212,39 +212,39 @@
         "<C-0>" = false;
         "<C-a>" = false;
       };
-      
+
       # Remote development
       "remote.SSH.remotePlatform" = {
         "*" = "linux";
       };
-      
+
       # Docker configuration
       "docker.containers.label" = "ContainerName";
       "docker.extension.enableComposeLanguageServer" = false;
-      
+
       # Kubernetes configuration
       "vs-kubernetes" = {
         "disable-linters" = [ "resource-limits" ];
         "vs-kubernetes.crd-code-completion" = "disabled";
         "vscode-kubernetes.minikube-path-linux" = "/home/nicolas/.local/state/vs-kubernetes/tools/minikube/linux-amd64/minikube";
       };
-      
+
       # GitHub Copilot
       "github.copilot.nextEditSuggestions.enabled" = true;
-      
+
       # Extension-specific settings
       "vsicons.dontShowNewVersionMessage" = true;
-      
+
       # Nix configuration
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "${pkgs.nil}/bin/nil";
-      
+
       # Security and Privacy
       "telemetry.telemetryLevel" = "off";
       "redhat.telemetry.enabled" = false;
       "update.mode" = "none";
       "extensions.autoUpdate" = false;
-      
+
       # Performance
       "search.exclude" = {
         "**/node_modules" = true;
@@ -263,7 +263,7 @@
         "**/build/**" = true;
       };
     };
-    
+
     keybindings = [
       {
         key = "ctrl+shift+e";
@@ -295,7 +295,7 @@
       }
     ];
   };
-  
+
   home.packages = with pkgs; [
     # Language servers and formatters
     nil                      # Nix language server
@@ -303,7 +303,7 @@
     nodePackages.eslint      # JavaScript linter
     black                    # Python formatter
     flake8                   # Python linter
-    
+
     # Additional development tools
     nodePackages.typescript  # TypeScript compiler
     nodePackages.npm         # Node package manager
