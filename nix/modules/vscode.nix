@@ -29,7 +29,7 @@
       vscode-icons-team.vscode-icons                # VSCode Icons
 
       # Code Quality and Formatting
-      ms-vscode.vscode-eslint                       # ESLint
+      # ms-vscode.vscode-eslint                       # ESLint
       editorconfig.editorconfig                     # EditorConfig
 
       # GitHub Integration
