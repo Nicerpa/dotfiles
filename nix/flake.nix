@@ -10,36 +10,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations = {
-      default = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/default/configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      };
-      scanner = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/scanner/configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      };
-      operator = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        modules = [
-          ./hosts/operator/configuration.nix
-          inputs.home-manager.nixosModules.default
-        ];
-      };
-    };
-    
-    homeConfigurations = {
-      gunner = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [ ./hosts/gunner/home.nix ];
-      };
+  outputs = { self, nixpkgs, ... }@inputs: {
+    nixosConfigurations.scanner = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./host/scanner/configuration.nix
+        inputs.home-manager.nixosModules.default
+      ];
     };
   };
 }

@@ -1,9 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-  ];
-
+  # Home Manager needs a bit of information about you and the paths it should
+  # manage.
   home.username = "nicolas";
   home.homeDirectory = "/home/nicolas";
 
@@ -16,13 +15,12 @@
   # release notes.
   home.stateVersion = "25.05"; # Please read the comment before changing.
 
+  # The home.packages option allows you to install Nix packages into your
+  # environment.
   home.packages = [
-    pkgs.neovim
-    pkgs.tmux
-    pkgs.alacritty
-    pkgs.eza
-    # pkgs.nerdfonts
-    pkgs.google-chrome
+    # # Adds the 'hello' command to your environment. It prints a friendly
+    # # "Hello, world!" when run.
+    # pkgs.hello
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -41,10 +39,6 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".zshrc".source = /home/nicolas/.dotfiles/.zshrc;
-    ".config/alacritty".source = /home/nicolas/.dotfiles/config/alacritty;
-    ".config/kitty".source = /home/nicolas/.dotfiles/config/kitty;
-
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -74,16 +68,8 @@
   #  /etc/profiles/per-user/nicolas/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    DOTFILES = "${config.home.homeDirectory}/.dotfiles";
-    EDITOR = "nvim";
-    MANPAGER = "nvim +Man!";
-    GOPATH = "${config.home.homeDirectory}/.local/go";
+    # EDITOR = "emacs";
   };
-
-  home.sessionPath = [
-    "${config.home.homeDirectory}/.local/bin"
-    "/usr/local/go/bin"
-  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
