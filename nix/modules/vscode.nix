@@ -298,15 +298,15 @@
 
   home.packages = with pkgs; [
     # Language servers and formatters
-    nil                      # Nix language server
-    nodePackages.prettier    # Code formatter
-    nodePackages.eslint      # JavaScript linter
-    black                    # Python formatter
-    flake8                   # Python linter
+    # nil                      # Nix language server
+    # nodePackages.prettier    # Code formatter
+    # nodePackages.eslint      # JavaScript linter
+    # black                    # Python formatter
+    # flake8                   # Python linter
 
-    # Additional development tools
-    nodePackages.typescript  # TypeScript compiler
-    nodePackages.npm         # Node package manager
-    nodejs                   # Node.js runtime
+    # # Additional development tools
+    # nodePackages.typescript  # TypeScript compiler
+    # nodePackages.npm         # Node package manager
+    # nodejs                   # Node.js runtime
   ];
 }
