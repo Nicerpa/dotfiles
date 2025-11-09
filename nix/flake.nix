@@ -14,7 +14,7 @@
     nixosConfigurations.scanner = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./host/scanner/configuration.nix
+        ./hosts/scanner/configuration.nix
         inputs.home-manager.nixosModules.default
       ];
     };
