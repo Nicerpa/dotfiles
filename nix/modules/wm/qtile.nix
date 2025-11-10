@@ -2,16 +2,16 @@
 
 {
   home.packages = with pkgs; [
-    qtile                   # Qtile window manager
-    rofi                    # Application launcher
-    ranger                  # File manager
+    python313Packages.qtile
+    rofi
+    ranger
   ];
 
   # Configure Qtile and related dotfiles
   home.file = {
-    ".config/qtile".source = /home/nicolas/.dotfiles/config/qtile;
-    ".config/rofi".source = /home/nicolas/.dotfiles/config/rofi;
-    ".config/ranger".source = /home/nicolas/.dotfiles/config/ranger;
+    # ".config/qtile".source = /home/nicolas/.dotfiles/config/qtile;
+    # ".config/rofi".source = /home/nicolas/.dotfiles/config/rofi;
+    # ".config/ranger".source = /home/nicolas/.dotfiles/config/ranger;
   };
 
   home.sessionVariables = {

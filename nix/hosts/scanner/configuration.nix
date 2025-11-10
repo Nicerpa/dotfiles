@@ -50,9 +50,9 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  # services.gnome.core-apps.enable = false;
-  # services.gnome.core-developer-tools.enable = false;
-  # services.gnome.games.enable = false;
+  services.gnome.core-apps.enable = true;
+  services.gnome.core-developer-tools.enable = true;
+  services.gnome.games.enable = false;
 
   environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-user-docs ];
 
@@ -90,7 +90,7 @@
   users.users.nicolas = {
     isNormalUser = true;
     description = "nicolas";
-    # shell = pkgs.zsh;
+    shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     ];
@@ -118,7 +118,11 @@
     curl
     git
     neovim
+    tmux
+    alacritty
   ];
+
+  programs.zsh.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
