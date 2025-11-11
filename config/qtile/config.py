@@ -1,4 +1,7 @@
+import os
+import subprocess
 from libqtile.lazy import lazy
+from libqtile import hook
 from configs.keys import keys
 from configs.layouts import layouts, floating_layout
 from configs.mouse import mouse
@@ -14,6 +17,42 @@ cursor_warp = True
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
+
+sticky_windows = []
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/.config/qtile/scripts/autostart.sh') # path to my script, under my user directory
+    subprocess.call([home])
+
+@lazy.function
+def toggle_sticky_windows(qtile, window=None):
+    if window is None:
+        window = qtile.current_screen.group.current_window
+    if window in sticky_windows:
+        sticky_windows.remove(window)
+    else:
+        sticky_windows.append(window)
+    return window
+
+@hook.subscribe.setgroup
+def move_sticky_windows():
+    for window in sticky_windows:
+        window.togroup()
+    return
+
+@hook.subscribe.client_killed
+def remove_sticky_windows(window):
+    if window in sticky_windows:
+        sticky_windows.remove(window)
+
+# Below is an example how to make Firefox Picture-in-Picture windows automatically sticky.
+@hook.subscribe.client_managed
+def auto_sticky_windows(window):
+    info = window.info()
+    if (info['wm_class'] == ['Toolkit', 'firefox']
+            and info['name'] == 'Picture-in-Picture'):
+        sticky_windows.append(window)
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?

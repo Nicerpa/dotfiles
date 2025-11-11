@@ -15,7 +15,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayout(
-                    padding=10
+                    padding=5
                 ),
                 widget.GroupBox(
                     disable_drag=True,
@@ -37,16 +37,19 @@ screens = [
                 ),
                 widget.Clock(
                     format="%a %H:%M %p",
-                    padding=10
+                    padding=5
                 ),
-                widget.Volume(),
+                widget.Volume(
+                    padding=5
+                ),
                 widget.Battery(
-                    format='{char} {percent:2.0%} {hour:d}:{min:02d}'
+                    format='{char}{percent:2.0%}',
+                    padding=5
                 ),
             ],
-            24,
-            # margin=[5,5,0,5],
-            # border_width=[1, 1, 1, 1]
+            26,
+            margin = [6,8,6,8],
+            border_width=[4, 8, 4, 8]
         ),
     ),
     Screen(
@@ -77,9 +80,9 @@ screens = [
                 ),
                 widget.Volume(),
             ],
-            24,
-            # margin=[5,5,0,5],
-            # # border_width=[3, 3, 3, 3]
+            26,
+            margin = [6,8,6,8],
+            border_width=[4, 8, 4, 8]
         ),
     ),
     Screen(
@@ -122,9 +125,9 @@ screens = [
                     warn_space=3
                 ),
             ],
-            24,
-            # margin=[5,5,0,5],
-            # border_width=[1, 1, 1, 1]
+            26,
+            margin = [6,8,6,8],
+            border_width=[4, 8, 4, 8]
         )
     )
 ]

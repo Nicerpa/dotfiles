@@ -3,19 +3,22 @@ from libqtile.config import Match
 
 layouts = [
     layout.Max(
-        margin=5,
+        margin=6,
     ),
     layout.Columns(
         border_focus="#88C0D0",      # Nord Frost - bright cyan for focused window
         border_normal="#4C566A",     # Nord Polar Night - darker gray for normal windows
         border_width=1,
-        margin=2,
+        margin=6,
         border_focus_stack="#81A1C1",  # Nord Frost - blue for focused stack
         border_normal_stack="#3B4252", # Nord Polar Night - dark background
         border_on_single=True,          # Show border even for single window
     ),
     layout.MonadWide(
-        margin=2,
+        border_focus="#88C0D0",
+        border_normal="#4C566A",
+        border_width=1,
+        margin=6,
     ),
 ]
 
